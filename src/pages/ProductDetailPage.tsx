@@ -28,11 +28,11 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
   const decreaseQuantity = () => setQuantity(q => Math.max(1, q - 1));
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-lime-50 to-white pt-24 pb-16">
       <div className="container mx-auto px-4">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold mb-8 group"
+          className="flex items-center gap-2 text-lime-600 hover:text-lime-700 font-semibold mb-8 group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           Back to Products
@@ -40,18 +40,18 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-green-400 to-green-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-lime-400 to-lime-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
             <img
               src={product.image}
               alt={product.name}
               className="relative w-full h-[500px] object-cover rounded-2xl shadow-2xl"
             />
             <div className="absolute top-6 left-6 flex flex-col gap-3">
-              <div className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
+              <div className="bg-lime-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
                 <Leaf className="w-4 h-4" />
                 100% Natural
               </div>
-              <div className="bg-white text-green-600 px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
+              <div className="bg-white text-lime-600 px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
                 <Award className="w-4 h-4" />
                 Premium Quality
               </div>
@@ -77,9 +77,9 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
                       disabled={!size.inStock}
                       className={`px-6 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
                         selectedSize.size === size.size
-                          ? 'bg-green-500 text-white shadow-xl scale-110'
+                          ? 'bg-lime-500 text-white shadow-xl scale-110'
                           : size.inStock
-                          ? 'bg-gray-100 text-gray-700 hover:bg-green-100 hover:text-green-700 hover:scale-105'
+                          ? 'bg-gray-100 text-gray-700 hover:bg-lime-100 hover:text-lime-700 hover:scale-105'
                           : 'bg-gray-100 text-gray-400 cursor-not-allowed line-through'
                       }`}
                     >
@@ -91,7 +91,7 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
 
               <div className="mb-6">
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-4xl font-bold text-green-600">
+                  <span className="text-4xl font-bold text-lime-600">
                     ₹{selectedSize.price}
                   </span>
                   <span className="text-xl text-gray-500">/{selectedSize.size}</span>
@@ -100,10 +100,10 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
 
               <div className="flex items-center gap-4 mb-6">
                 <label className="text-sm font-semibold text-gray-700">Quantity:</label>
-                <div className="flex items-center border-2 border-green-500 rounded-xl overflow-hidden">
+                <div className="flex items-center border-2 border-lime-500 rounded-xl overflow-hidden">
                   <button
                     onClick={decreaseQuantity}
-                    className="p-3 bg-green-50 hover:bg-green-100 text-green-600 transition-colors"
+                    className="p-3 bg-lime-50 hover:bg-lime-100 text-lime-600 transition-colors"
                   >
                     <Minus className="w-5 h-5" />
                   </button>
@@ -112,7 +112,7 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
                   </span>
                   <button
                     onClick={increaseQuantity}
-                    className="p-3 bg-green-50 hover:bg-green-100 text-green-600 transition-colors"
+                    className="p-3 bg-lime-50 hover:bg-lime-100 text-lime-600 transition-colors"
                   >
                     <Plus className="w-5 h-5" />
                   </button>
@@ -124,9 +124,9 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
                 disabled={!selectedSize.inStock}
                 className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
                   isAdded
-                    ? 'bg-green-600 text-white'
+                    ? 'bg-lime-600 text-white'
                     : selectedSize.inStock
-                    ? 'bg-green-500 hover:bg-green-600 text-white hover:shadow-2xl hover:scale-105'
+                    ? 'bg-lime-500 hover:bg-lime-600 text-white hover:shadow-2xl hover:scale-105'
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                 }`}
               >
@@ -140,13 +140,13 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <CheckCircle className="w-6 h-6 text-green-500" />
+              <CheckCircle className="w-6 h-6 text-lime-500" />
               Benefits
             </h2>
             <ul className="space-y-3">
               {product.benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-lime-500 rounded-full mt-2 flex-shrink-0"></div>
                   <span className="text-gray-700">{benefit}</span>
                 </li>
               ))}
@@ -155,13 +155,13 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
 
           <div className="bg-white rounded-2xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Award className="w-6 h-6 text-green-500" />
+              <Award className="w-6 h-6 text-lime-500" />
               Specifications
             </h2>
             <ul className="space-y-3">
               {product.specifications.map((spec, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-lime-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">{spec}</span>
                 </li>
               ))}
@@ -169,7 +169,7 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
           </div>
         </div>
 
-        <div className="mt-8 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl shadow-xl p-8 text-white">
+        <div className="mt-8 bg-gradient-to-r from-lime-500 to-lime-600 rounded-2xl shadow-xl p-8 text-white">
           <h2 className="text-2xl font-bold mb-4">How to Use</h2>
           <p className="text-lg leading-relaxed">{product.howToUse}</p>
         </div>

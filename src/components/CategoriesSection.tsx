@@ -1,58 +1,73 @@
-import { ArrowRight } from 'lucide-react';
-import { categories } from '../data/products';
+import { ArrowRight } from "lucide-react";
+import { categories } from "../data/products";
 
 interface CategoriesSectionProps {
   onCategoryClick: (categoryId: string) => void;
 }
 
-export default function CategoriesSection({ onCategoryClick }: CategoriesSectionProps) {
+export default function CategoriesSection({
+  onCategoryClick,
+}: CategoriesSectionProps) {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-green-50">
+    <section className="py-20 bg-[#FFFDF3]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fadeIn">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Categories
+
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+            Discover Our Categories
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Explore our premium collection of natural and healthy products
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mt-3">
+            Explore naturally crafted, premium-quality products curated for your well-being.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {/* Categories Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 md:gap-14 text-center">
           {categories.map((category, index) => (
             <div
               key={category.id}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer animate-slideUp"
-              style={{ animationDelay: `${index * 100}ms` }}
               onClick={() => onCategoryClick(category.id)}
+              style={{ animationDelay: `${index * 80}ms` }}
+              className="group cursor-pointer animate-slideUp"
             >
-              <div className="aspect-[4/5] relative overflow-hidden">
+              {/* Circular Image with Premium Border */}
+              <div
+                className="
+                  w-44 h-44 md:w-48 md:h-48 mx-auto rounded-full bg-white relative p-2
+                  shadow-[0_10px_30px_-10px_rgba(0,0,0,0.25)]
+                  transition-all duration-500
+                  group-hover:scale-105
+                  group-hover:shadow-[0_15px_40px_-8px_rgba(0,0,0,0.35)]
+                "
+                style={{
+                  border: "6px solid #bef264", // lime-300
+                }}
+              >
+                {/* Inner Soft Shadow */}
+                <div className="absolute inset-0 rounded-full shadow-inner"></div>
+
+                {/* Perfect Circle Image */}
                 <img
                   src={category.image}
                   alt={category.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="
+                    w-full h-full rounded-full object-cover
+                    transition-all duration-500
+                    group-hover:brightness-105
+                  "
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-
-                <div className="absolute inset-0 bg-green-600/0 group-hover:bg-green-600/20 transition-colors duration-500"></div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-green-300 transition-colors duration-300">
-                    {category.name}
-                  </h3>
-                  <p className="text-gray-200 text-sm mb-4 opacity-90">
-                    {category.description}
-                  </p>
-                  <div className="flex items-center text-green-400 font-semibold group-hover:text-white transition-colors duration-300">
-                    <span>Explore</span>
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
-                  </div>
-                </div>
               </div>
 
-              <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                View Products
+              {/* Category Name */}
+              <h3 className="text-xl font-semibold text-gray-900 mt-4 group-hover:text-lime-700 transition-all">
+                {category.name}
+              </h3>
+
+              {/* Explore Button */}
+              <div className="flex items-center justify-center gap-2 mt-2 text-lime-700 font-medium opacity-80 group-hover:opacity-100 transition-all">
+                <span>Explore Products</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
           ))}

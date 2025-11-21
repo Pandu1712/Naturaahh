@@ -11,11 +11,11 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
 
   if (cart.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-24 pb-16">
+      <div className="min-h-screen bg-gradient-to-b from-lime-50 to-white pt-24 pb-16">
         <div className="container mx-auto px-4">
           <button
             onClick={onBack}
-            className="flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold mb-8 group"
+            className="flex items-center gap-2 text-lime-600 hover:text-lime-700 font-semibold mb-8 group"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             Continue Shopping
@@ -27,7 +27,7 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
             <p className="text-gray-600 mb-8">Add some natural goodness to your cart!</p>
             <button
               onClick={onBack}
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+              className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
             >
               Start Shopping
             </button>
@@ -38,11 +38,11 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-lime-50 to-white pt-24 pb-16">
       <div className="container mx-auto px-4">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold mb-8 group"
+          className="flex items-center gap-2 text-lime-600 hover:text-lime-700 font-semibold mb-8 group"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           Continue Shopping
@@ -81,19 +81,19 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
                     </div>
 
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="text-sm font-semibold text-gray-700 bg-green-100 px-3 py-1 rounded-full">
+                      <span className="text-sm font-semibold text-gray-700 bg-lime-100 px-3 py-1 rounded-full">
                         {item.selectedSize.size}
                       </span>
-                      <span className="text-2xl font-bold text-green-600">
+                      <span className="text-2xl font-bold text-lime-600">
                         ₹{item.selectedSize.price}
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center border-2 border-green-500 rounded-lg overflow-hidden">
+                      <div className="flex items-center border-2 border-lime-500 rounded-lg overflow-hidden">
                         <button
                           onClick={() => updateQuantity(item.product.id, item.selectedSize.size, item.quantity - 1)}
-                          className="p-2 bg-green-50 hover:bg-green-100 text-green-600 transition-colors"
+                          className="p-2 bg-lime-50 hover:bg-lime-100 text-lime-600 transition-colors"
                         >
                           <Minus className="w-4 h-4" />
                         </button>
@@ -102,7 +102,7 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
                         </span>
                         <button
                           onClick={() => updateQuantity(item.product.id, item.selectedSize.size, item.quantity + 1)}
-                          className="p-2 bg-green-50 hover:bg-green-100 text-green-600 transition-colors"
+                          className="p-2 bg-lime-50 hover:bg-lime-100 text-lime-600 transition-colors"
                         >
                           <Plus className="w-4 h-4" />
                         </button>
@@ -132,32 +132,32 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Shipping</span>
-                  <span className="font-semibold text-green-600">Free</span>
+                  <span className="font-semibold text-lime-600">Free</span>
                 </div>
                 <div className="border-t pt-4 flex justify-between text-xl font-bold text-gray-900">
                   <span>Total</span>
-                  <span className="text-green-600">₹{getTotalPrice()}</span>
+                  <span className="text-lime-600">₹{getTotalPrice()}</span>
                 </div>
               </div>
 
               <button
                 onClick={onCheckout}
-                className="w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className="w-full bg-lime-500 hover:bg-lime-600 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
                 Proceed to Checkout
               </button>
 
               <div className="mt-6 space-y-3 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-lime-500 rounded-full"></div>
                   <span>100% Natural Products</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-lime-500 rounded-full"></div>
                   <span>Free Shipping on All Orders</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-lime-500 rounded-full"></div>
                   <span>Premium Quality Guaranteed</span>
                 </div>
               </div>

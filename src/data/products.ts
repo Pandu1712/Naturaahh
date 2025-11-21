@@ -69,7 +69,8 @@ export const products: Product[] = [
     image: 'https://images.pexels.com/photos/6544378/pexels-photo-6544378.jpeg?auto=compress&cs=tinysrgb&w=600',
     sizes: [
       { size: '150g', price: 179, inStock: true },
-      { size: '250g', price: 269, inStock: true }
+      { size: '250g', price: 269, inStock: true },
+      { size: '500g', price: 509, inStock: true }
     ],
     benefits: ['Promotes hair growth', 'Rich in iron', 'Aids digestion', 'Controls blood sugar'],
     specifications: ['100% Natural', 'Premium Quality', 'Sun Dried', 'Chemical Free'],

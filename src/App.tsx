@@ -12,6 +12,7 @@ import AboutPage from './pages/AboutPage';
 import StickyCartIcon from './components/StickyCartIcon';
 import WhatsAppButton from './components/WhatsAppButton';
 import { Product } from './types';
+import CategoriesSection from './components/CategoriesSection';
 
 type Page = 'home' | 'categories' | 'products' | 'product-detail' | 'cart' | 'checkout' | 'contact' | 'about';
 
@@ -75,6 +76,13 @@ function App() {
             onSuccess={handleCheckoutSuccess}
           />
         );
+         case 'categories':
+  return (
+    <CategoriesSection
+      onCategoryClick={handleCategoryClick}
+    />
+  );
+
       case 'contact':
         return <ContactPage />;
       case 'about':

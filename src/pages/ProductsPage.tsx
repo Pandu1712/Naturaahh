@@ -16,11 +16,11 @@ export default function ProductsPage({ categoryId, onBack, onViewDetails }: Prod
   const categoryProducts = products.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-24 pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-lime-50 to-white pt-24 pb-16">
       <div className="container mx-auto px-4">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-green-600 hover:text-green-700 font-semibold mb-8 group transition-all duration-300"
+          className="flex items-center gap-2 text-lime-600 hover:text-lime-700 font-semibold mb-8 group transition-all duration-300"
         >
           <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
           Back to Categories
