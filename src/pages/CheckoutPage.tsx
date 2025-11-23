@@ -43,7 +43,7 @@ export default function CheckoutPage({ onBack, onSuccess }: CheckoutPageProps) {
 
     message += `\n*Total Amount: ₹${getTotalPrice()}*`;
 
-    const whatsappNumber = '919876543210';
+    const whatsappNumber = '9191000965896';
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
