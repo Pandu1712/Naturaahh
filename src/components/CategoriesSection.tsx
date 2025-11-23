@@ -9,7 +9,7 @@ export default function CategoriesSection({
   onCategoryClick,
 }: CategoriesSectionProps) {
   return (
-    <section className="py-20 bg-[#FFFDF3]">
+    <section id="categories" className="py-20 bg-[#FFFDF3]">
       <div className="container mx-auto px-4">
 
         {/* Heading */}

@@ -59,11 +59,11 @@ export default function Navbar({ onNavigate, currentPage }: NavbarProps) {
             </div>
 
             {/* Logo */}
-            {/* <img
-              src="/Natulogo2.png"
+            {<img
+              src="/website navbar.png"
               alt="Logo"
-              className="w-32 h-12 object-contain transition-transform duration-300 group-hover:scale-105"
-            /> */}
+              className="w-32 h-14 object-contain transition-transform duration-300 group-hover:scale-105"
+            /> }
           </div>
 
           {/* Desktop Menu */}

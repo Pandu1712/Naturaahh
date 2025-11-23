@@ -53,7 +53,7 @@ export default function ContactPage() {
 
     const msg = `📩 *New Contact Request*\n\n👤 *Name*: ${formData.name}\n📧 *Email*: ${formData.email}\n📱 *Phone*: ${formData.phone}\n\n💬 *Message*: ${formData.message}`;
 
-    const whatsappNumber = "919876543210";
+    const whatsappNumber = "919000965896";
     const encodedMessage = encodeURIComponent(msg);
 
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
@@ -65,6 +65,7 @@ export default function ContactPage() {
   };
 
   return (
+    <section id="contact">
     <div className="min-h-screen bg-gradient-to-b from-lime-50 to-white pt-24 pb-20">
       <div className="container mx-auto px-5">
 
@@ -97,9 +98,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold">Visit Us</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      123 Natural Avenue, Green Park<br />
-                      Organic District, Mumbai 400001<br />
-                      Maharashtra, India
+                      Hyderabad.
+
                     </p>
                   </div>
                 </div>
@@ -112,8 +112,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold">Call Us</h3>
                     <p className="text-gray-600">
-                      +91 98765 43210<br />
-                      +91 98765 43211
+                      +91 90009 65896<br />
+                      
                     </p>
                   </div>
                 </div>
@@ -126,8 +126,8 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold">Email Us</h3>
                     <p className="text-gray-600">
-                      info@naturaahh.com<br />
-                      support@naturaahh.com
+                      naturaahh@gmail.com<br />
+                      
                     </p>
                   </div>
                 </div>
@@ -264,5 +264,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </section>
   );
 }

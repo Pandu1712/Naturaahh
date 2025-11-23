@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white pt-24 pb-20">
       {/* HEADER SECTION */}
-      <section className="text-center mb-20">
+      <section id="About" className="text-center mb-20">
         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">
           About <span className="text-lime-600">Naturaahh</span>
         </h1>

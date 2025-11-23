@@ -4,28 +4,28 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const slides = [
   {
     id: 1,
-    image: 'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    image: 'https://res.cloudinary.com/dd4oiwnep/image/upload/v1763890873/Fruitpowder_trbphd.webp',
     title: '100% Natural & Pure',
     subtitle: 'Discover the power of nature in every product',
     cta: 'Shop Now'
   },
   {
     id: 2,
-    image: 'https://images.pexels.com/photos/4198930/pexels-photo-4198930.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    image: 'https://res.cloudinary.com/dd4oiwnep/image/upload/v1763890872/cold_oil_ggu81b.webp',
     title: 'Cold Pressed Oils',
     subtitle: 'Traditional methods, exceptional quality',
     cta: 'Explore Oils'
   },
   {
     id: 3,
-    image: 'https://images.pexels.com/photos/4022104/pexels-photo-4022104.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    image: 'https://res.cloudinary.com/dd4oiwnep/image/upload/v1763890873/millites_hwipba.webp',
     title: 'Healthy Millet Products',
     subtitle: 'Ancient grains for modern wellness',
     cta: 'View Collection'
   },
   {
     id: 4,
-    image: 'https://images.pexels.com/photos/4198933/pexels-photo-4198933.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    image: 'https://res.cloudinary.com/dd4oiwnep/image/upload/v1763890873/Leafpowder_czzycf.jpg',
     title: 'Premium Leaf Powders',
     subtitle: 'Nature\'s gift for your health',
     cta: 'Discover More'
@@ -102,7 +102,7 @@ export default function HeroCarousel() {
                 >
                   {slide.subtitle}
                 </p>
-                <button
+                {/* <button
                   className={`bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
                     index === currentSlide
                       ? 'opacity-100 translate-y-0 delay-600'
@@ -110,7 +110,7 @@ export default function HeroCarousel() {
                   }`}
                 >
                   {slide.cta}
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

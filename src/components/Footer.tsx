@@ -33,7 +33,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href=" https://www.instagram.com/naturaahh/"
                 className="bg-white/10 hover:bg-lime-500 p-2 rounded-full transition-all duration-300 hover:scale-110"
               >
                 <Instagram className="w-5 h-5" />
@@ -95,20 +95,20 @@ export default function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start gap-3 group">
                 <MapPin className="w-5 h-5 text-lime-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <span className="text-gray-400">
-                  123 Natural Avenue<br />
-                  Mumbai 400001, India
+                  Hyderbad<br />
+                  
                 </span>
               </li>
               <li className="flex items-center gap-3 group">
                 <Phone className="w-5 h-5 text-lime-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                <a href="tel:+919876543210" className="text-gray-400 hover:text-lime-400 transition-colors">
-                  +91 98765 43210
+                <a href="tel:+91 90009 65896" className="text-gray-400 hover:text-lime-400 transition-colors">
+                  +91  90009 65896
                 </a>
               </li>
               <li className="flex items-center gap-3 group">
                 <Mail className="w-5 h-5 text-lime-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <a href="mailto:info@naturaahh.com" className="text-gray-400 hover:text-lime-400 transition-colors">
-                  info@naturaahh.com
+                 naturaahh@gmail.com
                 </a>
               </li>
             </ul>
