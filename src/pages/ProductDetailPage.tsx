@@ -41,11 +41,12 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           <div className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-r from-lime-400 to-lime-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
-            <img
-              src={product.image}
-              alt={product.name}
-              className="relative w-full h-[500px] object-cover rounded-2xl shadow-2xl"
-            />
+           <img
+  src={product.image}
+  alt={product.name}
+  className="w-auto h-auto object-cover object-center rounded-t-2xl transition-transform duration-300 group-hover:scale-105"
+/>
+
             <div className="absolute top-6 left-6 flex flex-col gap-3">
               <div className="bg-lime-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
                 <Leaf className="w-4 h-4" />
