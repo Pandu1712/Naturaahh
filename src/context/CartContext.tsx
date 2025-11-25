@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { CartItem } from '../types';
+import { CartItem, ProductSize } from '../types';
 
 interface CartContextType {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;
   removeFromCart: (productId: string, size: string) => void;
   updateQuantity: (productId: string, size: string, quantity: number) => void;
+  updateSize: (productId: string, oldSize: string, newSize: ProductSize) => void;
   clearCart: () => void;
   getTotalPrice: () => number;
   getTotalItems: () => number;
@@ -23,11 +24,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.setItem('naturaahh-cart', JSON.stringify(cart));
   }, [cart]);
 
+  // Add item
   const addToCart = (item: CartItem) => {
     setCart(prevCart => {
       const existingItem = prevCart.find(
-        cartItem => cartItem.product.id === item.product.id &&
-                    cartItem.selectedSize.size === item.selectedSize.size
+        cartItem =>
+          cartItem.product.id === item.product.id &&
+          cartItem.selectedSize.size === item.selectedSize.size
       );
 
       if (existingItem) {
@@ -38,19 +41,21 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
             : cartItem
         );
       }
-
       return [...prevCart, item];
     });
   };
 
+  // Remove item
   const removeFromCart = (productId: string, size: string) => {
     setCart(prevCart =>
-      prevCart.filter(item =>
-        !(item.product.id === productId && item.selectedSize.size === size)
+      prevCart.filter(
+        item =>
+          !(item.product.id === productId && item.selectedSize.size === size)
       )
     );
   };
 
+  // Update quantity
   const updateQuantity = (productId: string, size: string, quantity: number) => {
     if (quantity <= 0) {
       removeFromCart(productId, size);
@@ -66,30 +71,38 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  const getTotalPrice = () => {
-    return cart.reduce((total, item) =>
-      total + (item.selectedSize.price * item.quantity), 0
+  // ⭐ NEW — Update size inside cart
+  const updateSize = (productId: string, oldSize: string, newSize: ProductSize) => {
+    setCart(prevCart =>
+      prevCart.map(item =>
+        item.product.id === productId && item.selectedSize.size === oldSize
+          ? { ...item, selectedSize: newSize }
+          : item
+      )
     );
   };
 
-  const getTotalItems = () => {
-    return cart.reduce((total, item) => total + item.quantity, 0);
-  };
+  const clearCart = () => setCart([]);
+
+  const getTotalPrice = () =>
+    cart.reduce((total, item) => total + item.selectedSize.price * item.quantity, 0);
+
+  const getTotalItems = () =>
+    cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{
-      cart,
-      addToCart,
-      removeFromCart,
-      updateQuantity,
-      clearCart,
-      getTotalPrice,
-      getTotalItems
-    }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        updateSize, // <-- added here
+        clearCart,
+        getTotalPrice,
+        getTotalItems,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

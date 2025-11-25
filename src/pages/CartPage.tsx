@@ -7,7 +7,7 @@ interface CartPageProps {
 }
 
 export default function CartPage({ onBack, onCheckout }: CartPageProps) {
-  const { cart, updateQuantity, removeFromCart, getTotalPrice } = useCart();
+  const { cart, updateQuantity, updateSize, removeFromCart, getTotalPrice } = useCart();
 
   if (cart.length === 0) {
     return (
@@ -80,19 +80,40 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
                       </button>
                     </div>
 
+                    {/* ⭐ SIZE SELECTOR */}
+                    {/* SIZE CHANGE OPTION */}
+<div className="flex items-center gap-3 mb-4">
+  {item.product.sizes.map(size => (
+    <button
+      key={size.size}
+      className={`px-4 py-1 rounded-full text-sm font-semibold border transition
+        ${
+          item.selectedSize.size === size.size
+            ? "bg-lime-500 text-white border-lime-600"
+            : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-lime-100"
+        }
+      `}
+      onClick={() => updateSize(item.product.id, item.selectedSize.size, size)}
+    >
+      {size.size}
+    </button>
+  ))}
+</div>
+
+
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="text-sm font-semibold text-gray-700 bg-lime-100 px-3 py-1 rounded-full">
-                        {item.selectedSize.size}
-                      </span>
                       <span className="text-2xl font-bold text-lime-600">
                         ₹{item.selectedSize.price}
                       </span>
                     </div>
 
+                    {/* ⭐ QUANTITY CONTROL */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center border-2 border-lime-500 rounded-lg overflow-hidden">
                         <button
-                          onClick={() => updateQuantity(item.product.id, item.selectedSize.size, item.quantity - 1)}
+                          onClick={() =>
+                            updateQuantity(item.product.id, item.selectedSize.size, item.quantity - 1)
+                          }
                           className="p-2 bg-lime-50 hover:bg-lime-100 text-lime-600 transition-colors"
                         >
                           <Minus className="w-4 h-4" />
@@ -101,7 +122,9 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() => updateQuantity(item.product.id, item.selectedSize.size, item.quantity + 1)}
+                          onClick={() =>
+                            updateQuantity(item.product.id, item.selectedSize.size, item.quantity + 1)
+                          }
                           className="p-2 bg-lime-50 hover:bg-lime-100 text-lime-600 transition-colors"
                         >
                           <Plus className="w-4 h-4" />
@@ -121,6 +144,7 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
             ))}
           </div>
 
+          {/* ORDER SUMMARY */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-xl p-6 sticky top-24">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
@@ -146,21 +170,6 @@ export default function CartPage({ onBack, onCheckout }: CartPageProps) {
               >
                 Proceed to Checkout
               </button>
-
-              <div className="mt-6 space-y-3 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-lime-500 rounded-full"></div>
-                  <span>100% Natural Products</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-lime-500 rounded-full"></div>
-                  <span>Free Shipping on All Orders</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-lime-500 rounded-full"></div>
-                  <span>Premium Quality Guaranteed</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

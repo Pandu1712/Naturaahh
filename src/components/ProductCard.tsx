@@ -30,12 +30,20 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
 
       {/* Image Section */}
       <div className="relative overflow-hidden rounded-t-3xl">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-64 object-cover transform transition-all duration-700 group-hover:scale-105"
-        />
 
+        {/* 🔥 NEW: Image is now clickable and opens product details */}
+        <button
+          onClick={() => onViewDetails(product)}
+          className="w-full block text-left"
+        >
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-64 object-cover transform transition-all duration-700 group-hover:scale-105 cursor-pointer"
+          />
+        </button>
+
+        {/* Hover Eye Icon */}
         <button
           onClick={() => onViewDetails(product)}
           className="absolute top-4 right-4 bg-white/80 backdrop-blur-md p-2 rounded-full 
@@ -136,4 +144,3 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
     </div>
   );
 }
-

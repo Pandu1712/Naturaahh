@@ -39,13 +39,14 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
         </button>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-lime-400 to-lime-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
-           <img
-  src={product.image}
-  alt={product.name}
-  className="w-auto h-auto object-cover object-center rounded-t-2xl transition-transform duration-300 group-hover:scale-105"
-/>
+         <div className="w-100 h-100 relative group mx-auto">
+
+            <div className=" absolute -inset-4 bg-gradient-to-r from-lime-400 to-lime-600 rounded-3xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
+            <img
+              src={product.image}
+              alt={product.name}
+              className=" w-full h-full object-cover object-center  transition-transform duration-300 group-hover:scale-105"
+            />
 
             <div className="absolute top-6 left-6 flex flex-col gap-3">
               <div className="bg-lime-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
@@ -76,13 +77,12 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
                       key={size.size}
                       onClick={() => setSelectedSize(size)}
                       disabled={!size.inStock}
-                      className={`px-6 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${
-                        selectedSize.size === size.size
+                      className={`px-6 py-3 rounded-xl text-base font-semibold transition-all duration-300 ${selectedSize.size === size.size
                           ? 'bg-lime-500 text-white shadow-xl scale-110'
                           : size.inStock
-                          ? 'bg-gray-100 text-gray-700 hover:bg-lime-100 hover:text-lime-700 hover:scale-105'
-                          : 'bg-gray-100 text-gray-400 cursor-not-allowed line-through'
-                      }`}
+                            ? 'bg-gray-100 text-gray-700 hover:bg-lime-100 hover:text-lime-700 hover:scale-105'
+                            : 'bg-gray-100 text-gray-400 cursor-not-allowed line-through'
+                        }`}
                     >
                       {size.size}
                     </button>
@@ -123,13 +123,12 @@ export default function ProductDetailPage({ product, onBack }: ProductDetailPage
               <button
                 onClick={handleAddToCart}
                 disabled={!selectedSize.inStock}
-                className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${
-                  isAdded
+                className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 ${isAdded
                     ? 'bg-lime-600 text-white'
                     : selectedSize.inStock
-                    ? 'bg-lime-500 hover:bg-lime-600 text-white hover:shadow-2xl hover:scale-105'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
+                      ? 'bg-lime-500 hover:bg-lime-600 text-white hover:shadow-2xl hover:scale-105'
+                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  }`}
               >
                 <ShoppingCart className="w-6 h-6" />
                 {isAdded ? 'Added to Cart!' : 'Add to Cart'}
