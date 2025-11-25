@@ -3,19 +3,19 @@ import { Product, Category } from '../types';
 export const categories: Category[] = [
   {
     id: 'leaf-powder',
-    name: 'Leaf Powder',
+    name: 'Leaf Powders',
     image: 'https://res.cloudinary.com/dd4oiwnep/image/upload/v1763890873/Leafpowder_czzycf.jpg',
     description: 'Pure natural leaf powders for health & wellness'
   },
   {
     id: 'vegetable-powder',
-    name: 'Vegetable Powder',
+    name: 'Vegetable Powders',
     image: 'https://res.cloudinary.com/dd4oiwnep/image/upload/v1763890873/Vegetablepowder_w6yrzs.jpg',
     description: 'Organic vegetable powders rich in nutrients'
   },
   {
     id: 'fruit-powder',
-    name: 'Fruit Powder',
+    name: 'Fruit Powders',
     image: 'https://res.cloudinary.com/dd4oiwnep/image/upload/v1763890873/Fruitpowder_trbphd.webp',
     description: 'Natural fruit powders with authentic taste'
   },
